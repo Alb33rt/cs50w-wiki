@@ -1,0 +1,21 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% load markdown_filter %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div>
+        {{ content | markdown | safe }}
+    </div>
+    <div class="row">
+        <form action='{% url "edit" title %}' method="GET">
+            <input type="submit" class="btn btn-outline-primary" role="link" value="Edit Page">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

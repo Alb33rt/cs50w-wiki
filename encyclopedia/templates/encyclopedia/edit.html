@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create a Page
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2 class="text-center mt-2">Create a Page</h2>
+    <form action="{% url 'edit' title=editForm.data.title %}" method="POST">
+        <div class="row">
+            {% csrf_token %}
+            {{ editForm }}
+        </div>
+        <div class="row">
+            <div class="col text-left mt-5">
+                <input type="submit" value="Finish Edit" class="btn btn-primary ms-2">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
